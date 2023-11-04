@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Character : MonoBehaviour
+public abstract class CharacterController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public int maxHealth = 100;
@@ -10,15 +10,17 @@ public class Character : MonoBehaviour
     public int dexterity = 5;
     public string weapon; //we can later create a weapon class and use that instead of string
     protected int currentHealth;
+
     protected virtual void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
     }
+
     protected virtual void Update()
     {
         Move();
     }
+
     public virtual void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -27,9 +29,11 @@ public class Character : MonoBehaviour
             Die();
         }
     }
+
     protected virtual void Die()
     {
         Destroy(gameObject);
     }
+
     public abstract void Move();
 }
