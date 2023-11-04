@@ -17,7 +17,7 @@ public abstract class PlayerController : CharacterController
         base.Update();
     }
 
-    public override void Move()
+    protected override void Move()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");

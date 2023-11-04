@@ -35,5 +35,5 @@ public abstract class CharacterController : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public abstract void Move();
+    protected abstract void Move();
 }

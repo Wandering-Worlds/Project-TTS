@@ -11,11 +11,11 @@ public abstract class EnemyController : CharacterController
         base.Update();
     }
 
-    public override void Move(Vector2 movement)
-    {
-        Vector2 position = transform.position;
-        position += movement * enemyMoveSpeed * Time.deltaTime;
-        transform.position = position;
-    }
+    // public override void Move(Vector2 movement)
+    // {
+    //     Vector2 position = transform.position;
+    //     position += movement * enemyMoveSpeed * Time.deltaTime;
+    //     transform.position = position;
+    // }
     
 }
