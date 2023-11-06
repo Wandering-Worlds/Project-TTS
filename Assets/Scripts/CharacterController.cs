@@ -16,9 +16,14 @@ public abstract class CharacterController : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    protected virtual void Update()
+    protected virtual void FixedUpdate()
     {
         Move();
+    }
+    
+    protected virtual void Update() 
+    { 
+
     }
 
     public virtual void TakeDamage(int damage)
