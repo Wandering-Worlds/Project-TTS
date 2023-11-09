@@ -11,12 +11,6 @@ public class Shooting : MonoBehaviour
     [SerializeField] private float cooldownTime = 0.5f;
     private bool canShoot = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -43,11 +37,15 @@ public class Shooting : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePosition - transform.position);
         direction = Vector3.Normalize(direction);
-        Debug.Log(direction);
+        Debug.Log(direction);   
 
         // Instantiate the projectile and get its Rigidbody2D component
         GameObject projectile = Instantiate(projectilePrefab, spawnPoint.position, Quaternion.identity);
-        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+
+        // Find Angle of rotation
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        projectile.transform.eulerAngles = new Vector3 (0, 0, angle);
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();        
 
         // Set the velocity of the projectile and start the coroutine to destroy it after a delay
         if ( rb != null)
