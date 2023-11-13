@@ -6,6 +6,7 @@ public class Shooting : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform spawnPoint;
+    [SerializeField] private float offsetScale = 1f;
     [SerializeField] private float projecitleSpeed = 10f;
     [SerializeField] private float projectileDuration = 10f;
     [SerializeField] private float cooldownTime = 0.5f;
@@ -37,10 +38,10 @@ public class Shooting : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePosition - transform.position);
         direction = Vector3.Normalize(direction);
-        Debug.Log(direction);   
+        Vector3 offset = direction * offsetScale;         
 
         // Instantiate the projectile and get its Rigidbody2D component
-        GameObject projectile = Instantiate(projectilePrefab, spawnPoint.position, Quaternion.identity);
+        GameObject projectile = Instantiate(projectilePrefab, spawnPoint.position + offset, Quaternion.identity);
 
         // Find Angle of rotation
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

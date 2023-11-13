@@ -497,7 +497,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1435916779}
   - component: {fileID: 1435916778}
-  - component: {fileID: 1435916780}
+  - component: {fileID: 1435916784}
   - component: {fileID: 1435916783}
   - component: {fileID: 1435916781}
   - component: {fileID: 1435916782}
@@ -575,25 +575,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1435916780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435916777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0917dba5c2b9a8849a4a5a5eb83fbd33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  maxHealth: 100
-  attackDamage: 10
-  defense: 10
-  dexterity: 5
-  weapon: 
-  spriteRenderer: {fileID: 1435916778}
 --- !u!50 &1435916781
 Rigidbody2D:
   serializedVersion: 4
@@ -680,9 +661,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 6488627679679695300, guid: 586cbaac7cc5ac94e8f2a94467e65ef8, type: 3}
   spawnPoint: {fileID: 1435916779}
+  offsetScale: 1
   projecitleSpeed: 20
   projectileDuration: 1
   cooldownTime: 0.1
+--- !u!114 &1435916784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435916777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1471a5774a07375459ea3b6d99779ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  maxHealth: 100
+  attackDamage: 10
+  defense: 10
+  dexterity: 5
+  weapon: 
+  spriteRenderer: {fileID: 1435916778}
 --- !u!1 &1744078818
 GameObject:
   m_ObjectHideFlags: 0
