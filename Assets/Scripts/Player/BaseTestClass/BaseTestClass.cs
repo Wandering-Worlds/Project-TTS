@@ -2,21 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseTestClass : CharacterController
+public class BaseTestClass : PlayerController
 {
-    protected Rigidbody2D rb;
     [SerializeField] protected SpriteRenderer spriteRenderer;
 
-    protected override void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
-    }
 
-    void FixedUpdate()
-    {
-        base.FixedUpdate();
-    }
 
     protected override void Move()
     {

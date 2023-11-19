@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class CharacterController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public int maxHealth = 100;
+    protected int maxHealth = 100;
     public int attackDamage = 10;
     public int defense = 10;
     public int dexterity = 5;
@@ -21,14 +21,11 @@ public abstract class CharacterController : MonoBehaviour
         Move();
     }
     
-    protected virtual void Update() 
-    { 
-
-    }
-
     public virtual void TakeDamage(int damage)
     {
+        Debug.Log(currentHealth + " " + damage);
         currentHealth -= damage;
+        Debug.Log(currentHealth);
         if (currentHealth <= 0)
         {
             Die();

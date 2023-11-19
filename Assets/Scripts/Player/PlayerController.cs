@@ -8,14 +8,12 @@ public abstract class PlayerController : CharacterController
 
     protected override void Start()
     {
+        base.Start();
         rb = GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
+  
     }
 
-    protected override void Update()
-    {
-        base.Update();
-    }
+
 
     protected override void Move()
     {
