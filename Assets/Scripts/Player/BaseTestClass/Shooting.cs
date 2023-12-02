@@ -9,7 +9,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] private float offsetScale = 1f;
     [SerializeField] private float projecitleSpeed = 10f;
     [SerializeField] private float projectileDuration = 10f;
-    [SerializeField] private float cooldownTime = 0.5f;
+    [SerializeField] private float cooldownTime = 3f;
     private bool canShoot = true;
 
     // Update is called once per frame

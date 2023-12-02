@@ -10,17 +10,14 @@ public class BaseTestClass : PlayerController
 
     protected override void Move()
     {
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float verticalInput = Input.GetAxisRaw("Vertical");
-        Vector2 movement = new Vector2(horizontalInput, verticalInput).normalized;
-        rb.velocity = movement * moveSpeed;
+        base.Move();
 
-        if (horizontalInput < 0f)
+        if (rb.velocity.x < 0f)
         {
             spriteRenderer.flipX = true;
 
         }
-        else if (horizontalInput > 0f)
+        else if (rb.velocity.x > 0f)
         {
             spriteRenderer.flipX = false;
         }

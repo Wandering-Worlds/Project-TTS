@@ -5,21 +5,28 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] protected GameObject[] spawnerList;
-    [SerializeField] protected GameObject enemyType;
+    [SerializeField] protected GameObject[] enemyType;
 
-    private int randomNumber;
-    private float spawnInterval = 0.5f;
+    private int randomSpawnIndex;
+    private float spawnInterval = 3f;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        InvokeRepeating(nameof(SpawnEnemies), 0, spawnInterval);
+        InvokeRepeating(nameof(SpawnEnemy1), 0, spawnInterval);
+        InvokeRepeating(nameof(SpawnEnemy2), 0, spawnInterval * 2);
     }
 
     // Update is called once per frame
-    void SpawnEnemies()
+    private void SpawnEnemy1()
     {
-        randomNumber = Random.Range(0, spawnerList.Length - 1);        
-        GameObject Enemy1 = Instantiate(enemyType, spawnerList[randomNumber].transform.position, Quaternion.identity);
+        randomSpawnIndex = Random.Range(0, spawnerList.Length);
+        Instantiate(enemyType[0], spawnerList[randomSpawnIndex].transform.position, Quaternion.identity);
+    }
+
+    private void SpawnEnemy2()
+    {
+        randomSpawnIndex = Random.Range(0, spawnerList.Length);
+        Instantiate(enemyType[1], spawnerList[randomSpawnIndex].transform.position, Quaternion.identity);
     }
 }

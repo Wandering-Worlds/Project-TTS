@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 151527140}
   m_Layer: 0
   m_Name: ColosseumDraft
-  m_TagString: Untagged
+  m_TagString: Colosseum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -478,7 +478,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9, y: -1.39, z: -10}
+  m_LocalPosition: {x: -2.3625908, y: -1.38999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -819,7 +819,7 @@ MonoBehaviour:
   offsetScale: 1
   projecitleSpeed: 20
   projectileDuration: 1
-  cooldownTime: 0.1
+  cooldownTime: 0.3
 --- !u!114 &1435916784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -832,11 +832,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1471a5774a07375459ea3b6d99779ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  attackDamage: 10
-  defense: 10
-  dexterity: 5
-  weapon: 
   spriteRenderer: {fileID: 1435916778}
 --- !u!1 &1603445070
 GameObject:
@@ -899,7 +894,9 @@ MonoBehaviour:
   - {fileID: 2034360301}
   - {fileID: 1370612918}
   - {fileID: 1622513890}
-  enemyType: {fileID: 4745076697231142098, guid: a7f98e13b8ba65e4eb6355c5063dcfc8, type: 3}
+  enemyType:
+  - {fileID: 4745076697231142098, guid: a7f98e13b8ba65e4eb6355c5063dcfc8, type: 3}
+  - {fileID: 1970836923430490183, guid: fe5b0c73f3efece46b84e9af3d6300a5, type: 3}
 --- !u!1 &1622513890
 GameObject:
   m_ObjectHideFlags: 0

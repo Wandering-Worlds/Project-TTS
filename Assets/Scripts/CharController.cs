@@ -1,14 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public abstract class CharacterController : MonoBehaviour
+public abstract class CharController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    protected float moveSpeed = 5f;
     protected int maxHealth = 100;
-    public int attackDamage = 10;
-    public int defense = 10;
-    public int dexterity = 5;
-    public string weapon; //we can later create a weapon class and use that instead of string
     protected int currentHealth;
 
     protected virtual void Start()
@@ -23,9 +19,7 @@ public abstract class CharacterController : MonoBehaviour
     
     public virtual void TakeDamage(int damage)
     {
-        Debug.Log(currentHealth + " " + damage);
         currentHealth -= damage;
-        Debug.Log(currentHealth);
         if (currentHealth <= 0)
         {
             Die();

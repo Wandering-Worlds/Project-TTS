@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class EnemyController : CharacterController
+public abstract class EnemyController : CharController
 {
     protected float enemyMoveSpeed = 3f;
     protected GameObject refToPlayer;

@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
+  - Enemy1
+  - Enemy2
+  - Colosseum
   layers:
   - Default
   - TransparentFX

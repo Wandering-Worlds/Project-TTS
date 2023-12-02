@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EnemyTest2 : EnemyController
 {
-    protected int EnemyTest2Health = 20;
+    protected int EnemyTest2Health = 50;
 
 
     // Start is called before the first frame update
     protected override void Start()
     {
         maxHealth = EnemyTest2Health;
-        enemyMoveSpeed = 3f;
+        enemyMoveSpeed = 1.5f;
         base.Start();
         refToPlayer = GameObject.FindWithTag("Player"); ;
     }
