@@ -143,8 +143,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 882fbd27d6838074989ed2bc783a3c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  attackDamage: 10
-  defense: 10
-  dexterity: 5
-  weapon: 

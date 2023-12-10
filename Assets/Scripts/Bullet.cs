@@ -10,23 +10,14 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
-
-        if (other.CompareTag("Enemy1"))
+        IDamageable damageable = other.GetComponent<IDamageable>();
+        if (damageable != null)
         {
-            other.GetComponent<EnemyTest>().TakeDamage(damage);
+            //Hit a Damageable Object
+            damageable.TakeDamage(damage);
 
-            // Destroy the bullet on impact
+            //Destroy Bullet
             Destroy(gameObject);
-
-        }
-        if (other.CompareTag("Enemy2"))
-        {
-            other.GetComponent<EnemyTest2>().TakeDamage(damage);
-
-            // Destroy the bullet on impact
-            Destroy(gameObject);
-
         }
         
 

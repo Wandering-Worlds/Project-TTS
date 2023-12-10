@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public abstract class CharController : MonoBehaviour
+public abstract class CharController : MonoBehaviour, IDamageable
 {
     protected float moveSpeed = 5f;
     protected int maxHealth = 100;
