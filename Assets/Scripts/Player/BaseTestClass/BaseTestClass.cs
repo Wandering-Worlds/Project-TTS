@@ -5,9 +5,6 @@ using UnityEngine;
 public class BaseTestClass : PlayerController
 {
     [SerializeField] protected SpriteRenderer spriteRenderer;
-
-
-
     protected override void Move()
     {
         base.Move();

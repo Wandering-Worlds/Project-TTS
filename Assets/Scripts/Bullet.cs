@@ -6,8 +6,6 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private int damage = 10;
 
-
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         IDamageable damageable = other.GetComponent<IDamageable>();
@@ -18,11 +16,9 @@ public class Bullet : MonoBehaviour
 
             //Destroy Bullet
             Destroy(gameObject);
-        }
-        
+        }   
 
     }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Colosseum"))

@@ -11,14 +11,7 @@ public class EnemyTest : EnemyController
     protected override void Start()
     {
         maxHealth = EnemyTestHealth;
-        base.Start();
-        refToPlayer = GameObject.FindWithTag("Player"); ;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        base.Start();        
     }
 
 

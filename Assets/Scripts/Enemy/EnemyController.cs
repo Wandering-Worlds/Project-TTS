@@ -12,11 +12,9 @@ public abstract class EnemyController : CharController
     protected override void Start()
     {
         base.Start();
-        //rb = GetComponent<Rigidbody2D>();
+        refToPlayer = GameObject.FindWithTag("Player");
 
     }
-
-
     protected override void Move()
     {
         Vector2 direction = refToPlayer.transform.position - transform.position;
