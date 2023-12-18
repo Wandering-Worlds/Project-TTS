@@ -1,21 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class EnemyController : CharacterController
+public abstract class EnemyController : CharController
 {
-    public float enemyMoveSpeed = 3f;
+    protected float enemyMoveSpeed = 3f;
+    protected GameObject refToPlayer;
+    protected Rigidbody2D rb;
 
-    protected override void Update()
+    protected override void Start()
     {
-        base.Update();
+        base.Start();
+        refToPlayer = GameObject.FindWithTag("Player");
+
+    }
+    protected override void Move()
+    {
+        Vector2 direction = refToPlayer.transform.position - transform.position;
+        direction.Normalize();
+
+        transform.Translate(direction * enemyMoveSpeed * Time.deltaTime);
     }
 
-    // public override void Move(Vector2 movement)
-    // {
-    //     Vector2 position = transform.position;
-    //     position += movement * enemyMoveSpeed * Time.deltaTime;
-    //     transform.position = position;
-    // }
-    
 }
