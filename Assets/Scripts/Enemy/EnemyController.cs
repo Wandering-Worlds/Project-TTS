@@ -9,9 +9,9 @@ public abstract class EnemyController : CharController
     protected GameObject refToPlayer;
     protected Rigidbody2D rb;
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         refToPlayer = GameObject.FindWithTag("Player");
 
     }

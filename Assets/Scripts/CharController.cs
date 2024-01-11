@@ -4,10 +4,10 @@ using UnityEngine;
 public abstract class CharController : MonoBehaviour, IDamageable
 {
     protected float moveSpeed = 5f;
-    protected int maxHealth = 100;
-    protected int currentHealth;
+    protected float maxHealth = 100f;
+    protected float currentHealth;
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         currentHealth = maxHealth;
     }
@@ -17,7 +17,7 @@ public abstract class CharController : MonoBehaviour, IDamageable
         Move();
     }
     
-    public virtual void TakeDamage(int damage)
+    public virtual void TakeDamage(float damage)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)

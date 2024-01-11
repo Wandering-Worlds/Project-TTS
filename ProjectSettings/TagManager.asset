@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Colosseum
+  - Enemy
+  - Enemy2
   layers:
   - Default
   - TransparentFX
@@ -13,8 +15,8 @@ TagManager:
   - Water
   - UI
   - 
-  - 
-  - 
+  - Weapon
+  - Character
   - 
   - 
   - 
@@ -41,4 +43,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Character
+    uniqueID: 1817469679
+    locked: 0
+  - name: Weapon
+    uniqueID: 2568279183
     locked: 0

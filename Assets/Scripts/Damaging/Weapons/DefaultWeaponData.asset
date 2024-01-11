@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48322a306e18dc6439a50ae1d53a6fdf, type: 3}
+  m_Name: DefaultWeaponData
+  m_EditorClassIdentifier: 
+  damageScalingModifier: 1
+  attackSpeedScalingModifier: 1
+  projectilePrefab: {fileID: 6488627679679695300, guid: 586cbaac7cc5ac94e8f2a94467e65ef8, type: 3}
