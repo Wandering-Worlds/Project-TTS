@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 358064840302068525}
   - component: {fileID: 4898838099686260652}
   m_Layer: 0
-  m_Name: DefaultWeapon
+  m_Name: DefaultWeaponPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

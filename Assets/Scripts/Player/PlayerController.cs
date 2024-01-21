@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class PlayerController : CharController
@@ -19,8 +20,8 @@ public abstract class PlayerController : CharController
 
     protected virtual void Start()
     {
-        weapon = (IWeapon)weaponPrefab.GetComponents(typeof(IWeapon))[0];
-
+        weapon = weaponPrefab.GetComponents<IWeapon>()[0]; // weaponPrefab.GetComponent<DefaultWeaponController>();
+        weapon.InitializeWeapon(classData);
     }
 
     protected override void FixedUpdate()
@@ -41,10 +42,7 @@ public abstract class PlayerController : CharController
     {
         if (Input.GetButton("Fire1"))
         {
-            Debug.Log("Before shot");
-            weapon.Fire(Camera.main.ScreenToWorldPoint(Input.mousePosition),
-                         transform.position);
-            Debug.Log("After shot");
+            weapon.Fire(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
     }
 }
