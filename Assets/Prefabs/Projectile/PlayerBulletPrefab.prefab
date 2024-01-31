@@ -131,7 +131,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.69276816, y: 0.1958049}
-  m_EdgeRadius: 1
+  m_EdgeRadius: 0.02
 --- !u!114 &5402807596809600102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +160,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

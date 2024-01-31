@@ -36,29 +36,6 @@ public class DefaultWeaponController : MonoBehaviour, IWeapon
         DefaultShoot(spawnPoint, target);
     }
 
-    protected Vector2 NormalizeTarget(Vector3 target)
-    {
-        Vector2 directionVector = (target - transform.position);
-        return directionVector.normalized;
-    }
-
-    protected Vector3 CalculateOffset(Vector2 direction)
-    {
-        return direction * characterData.offsetScale;
-    }
-
-    protected IEnumerator ResetCooldown(float attackCooldown)
-    {
-        yield return new WaitForSeconds(attackCooldown);
-        canShoot = true;
-    }
-
-    protected IEnumerator DestroyAfterDelay(GameObject obj, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        Destroy(obj);
-    }
-
     private void DefaultShoot(Vector3 spawnPoint, Vector3 target)
     {
         Vector2 direction = NormalizeTarget(target);
@@ -84,5 +61,32 @@ public class DefaultWeaponController : MonoBehaviour, IWeapon
     {
         projectileData.damage = characterData.damage * weaponData.damageScalingModifier;
         projectileData.projectileSpeed = characterData.projectileSpeed;
+    }
+
+    // HELPERS
+
+    protected Vector2 NormalizeTarget(Vector3 target)
+    {
+        Vector2 directionVector = (target - transform.position);
+        return directionVector.normalized;
+    }
+
+    protected Vector3 CalculateOffset(Vector2 direction)
+    {
+        return direction * characterData.offsetScale;
+    }
+
+    // COROUTINES
+
+    protected IEnumerator ResetCooldown(float attackCooldown)
+    {
+        yield return new WaitForSeconds(attackCooldown);
+        canShoot = true;
+    }
+
+    protected IEnumerator DestroyAfterDelay(GameObject obj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(obj);
     }
 }
