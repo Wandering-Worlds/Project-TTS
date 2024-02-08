@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyTest : EnemyController
+public class FailedSuite : EnemyController
 {
-    //[SerializeField] protected GameObject playerObject;
-    protected int EnemyTestHealth = 20;
+    [SerializeField] private EnemyDataScriptableObject classData;
+
 
     // Start is called before the first frame update
     protected override void Awake()
     {
         base.Awake();
-        maxHealth = EnemyTestHealth;
+        currentHealth = classData.health;
+        enemyMoveSpeed = classData.speed;
     }
 
 

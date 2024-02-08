@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class EnemyController : CharController, IDamageable 
-{
+{   
     protected float enemyMoveSpeed = 3f;
     protected GameObject refToPlayer;
     protected Rigidbody2D rb;

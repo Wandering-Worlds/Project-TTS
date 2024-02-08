@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EnemyTest2 : EnemyController
 {
-    protected int EnemyTest2Health = 50;
+    [SerializeField] private EnemyDataScriptableObject classData;
 
     // Start is called before the first frame update
     protected override void Awake()
     {
         base.Awake();
-        maxHealth = EnemyTest2Health;
-        enemyMoveSpeed = 1.5f;    
+        currentHealth = classData.health;
+        enemyMoveSpeed = classData.speed;    
     }
 
 }
