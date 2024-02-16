@@ -16,8 +16,7 @@ public abstract class PlayerController : CharController
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        moveSpeed = classData.moveSpeed;
-        
+        moveSpeed = classData.moveSpeed;        
     }
 
     protected virtual void Start()
