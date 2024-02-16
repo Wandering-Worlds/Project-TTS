@@ -11,11 +11,13 @@ public abstract class PlayerController : CharController
     [SerializeField] protected GameObject weaponPrefab;
     protected Rigidbody2D rb;
     protected IWeapon weapon;
+    protected float moveSpeed;
 
-    protected override void Awake()
+    protected virtual void Awake()
     {
-        base.Awake();
         rb = GetComponent<Rigidbody2D>();
+        moveSpeed = classData.moveSpeed;
+        
     }
 
     protected virtual void Start()

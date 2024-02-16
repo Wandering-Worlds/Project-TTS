@@ -3,14 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public abstract class CharController : MonoBehaviour
 {
-    protected float moveSpeed = 5f;
-    protected float maxHealth = 100f;
     protected float currentHealth;
-
-    protected virtual void Awake()
-    {
-        currentHealth = maxHealth;
-    }
 
     protected virtual void FixedUpdate()
     {

@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Scriptable Objects/Character Data")]
 public class CharacterDataScriptableObject : ScriptableObject
 {
+    public float moveSpeed;
     public float damage;
     public float projectileSpeed;
     public float projectileTimeToLive;
