@@ -1,28 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class PlayerController : CharacterController
+public abstract class PlayerController : CharController
 {
-    protected Rigidbody2D rb;
+    [SerializeField] private const float OFFSET_SCALE = 1f;
 
-    protected override void Start()
+    [SerializeField] protected CharacterDataScriptableObject classData;
+    [SerializeField] protected GameObject weaponPrefab;
+    protected Rigidbody2D rb;
+    protected IWeapon weapon;
+    protected float moveSpeed;
+
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
+        moveSpeed = classData.moveSpeed;
+        
     }
 
-    protected override void Update()
+    protected virtual void Start()
     {
-        base.Update();
+        weapon = weaponPrefab.GetComponents<IWeapon>()[0]; // weaponPrefab.GetComponent<DefaultWeaponController>();
+        weapon.InitializeWeapon(classData);
+    }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+        ShootWeapon();
     }
 
     protected override void Move()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("Vertical");
         Vector2 movement = new Vector2(horizontalInput, verticalInput).normalized;
         rb.velocity = movement * moveSpeed;
     }
 
+    protected virtual void ShootWeapon()
+    {
+        if (Input.GetButton("Fire1"))
+        {
+            weapon.Fire(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        }
+    }
 }
