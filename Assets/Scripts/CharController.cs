@@ -5,11 +5,13 @@ public abstract class CharController : MonoBehaviour
 {
     protected float currentHealth;
     protected SpriteRenderer spriteRenderer;
+    protected Rigidbody2D rb;
+
 
     protected virtual void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        rb = GetComponent<Rigidbody2D>();
     }
 
     protected virtual void FixedUpdate()
@@ -19,9 +21,13 @@ public abstract class CharController : MonoBehaviour
     
     public virtual void TakeDamage(float damage)
     {
-        
+        //if spriteRenderer is not null, call DamageFade
         if (spriteRenderer != null)
             StartCoroutine(DamageFade(0.1f));
+
+        if (rb != null)
+            StartCoroutine(Knockback());
+
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
@@ -38,6 +44,9 @@ public abstract class CharController : MonoBehaviour
 
         spriteRenderer.color = originalColor;
     }
+
+    protected abstract IEnumerator Knockback();
+    
 
     protected virtual void Die()
     {

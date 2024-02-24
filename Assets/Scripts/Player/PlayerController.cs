@@ -9,14 +9,12 @@ public abstract class PlayerController : CharController
 
     [SerializeField] protected CharacterDataScriptableObject classData;
     [SerializeField] protected GameObject weaponPrefab;
-    protected Rigidbody2D rb;
     protected IWeapon weapon;
     protected float moveSpeed;
 
     protected override void Awake()
     {
         base.Awake();
-        rb = GetComponent<Rigidbody2D>();
         moveSpeed = classData.moveSpeed;
         
     }
@@ -47,5 +45,10 @@ public abstract class PlayerController : CharController
         {
             weapon.Fire(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
+    }
+
+    protected override IEnumerator Knockback()
+    {
+        return null;
     }
 }
