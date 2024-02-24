@@ -13,8 +13,9 @@ public abstract class PlayerController : CharController
     protected IWeapon weapon;
     protected float moveSpeed;
 
-    protected virtual void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         rb = GetComponent<Rigidbody2D>();
         moveSpeed = classData.moveSpeed;
         
