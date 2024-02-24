@@ -8,6 +8,10 @@ public abstract class EnemyController : CharController, IDamageable
     protected float enemyMoveSpeed = 3f;
     protected GameObject refToPlayer;
 
+    //knockback properties
+    protected float knockbackStrength = 5e2f;
+    protected float knockbackDuration = 2f;
+
     protected override void Awake()
     {
         base.Awake();
@@ -21,9 +25,9 @@ public abstract class EnemyController : CharController, IDamageable
 
     protected override IEnumerator Knockback()
     {
-        Vector2 direction = transform.position - refToPlayer.transform.position;
-        rb.AddForce(direction*50);
-        yield return new WaitForSeconds(0.5f);
+        Vector2 direction = (transform.position - refToPlayer.transform.position).normalized;
+        rb.AddForce(direction * knockbackStrength);
+        yield return new WaitForSeconds(knockbackDuration);
         rb.velocity = Vector3.zero;
     }
 
