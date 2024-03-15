@@ -9,21 +9,32 @@ public abstract class PlayerController : CharController
 
     [SerializeField] protected CharacterDataScriptableObject classData;
     [SerializeField] protected GameObject weaponPrefab;
+
     protected Rigidbody2D rb;
+    protected SpriteRenderer spriteRenderer;
     protected IWeapon weapon;
     protected float moveSpeed;
+
+    private bool charIsFacingRight = true;
 
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         moveSpeed = classData.moveSpeed;
-        
     }
 
     protected virtual void Start()
     {
         weapon = weaponPrefab.GetComponents<IWeapon>()[0]; // weaponPrefab.GetComponent<DefaultWeaponController>();
         weapon.InitializeWeapon(classData);
+    }
+
+    protected virtual void Update()
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        FlipCharacterAccordingToMousePosition((Vector2)mousePosition);
+        weapon.FollowPointer(mousePosition);
     }
 
     protected override void FixedUpdate()
@@ -45,6 +56,27 @@ public abstract class PlayerController : CharController
         if (Input.GetButton("Fire1"))
         {
             weapon.Fire(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        }
+    }
+
+    private void FlipCharacterAccordingToMousePosition(Vector2 mousePosition)
+    {
+        float mousePosBasedOnCharPos = mousePosition.x - transform.position.x;
+
+        if (!charIsFacingRight && mousePosBasedOnCharPos > 0)
+        {
+            Vector3 newAngles = transform.eulerAngles;
+            newAngles.y = 0;
+            transform.eulerAngles = newAngles;
+
+            charIsFacingRight = true;
+        }
+        else if (charIsFacingRight && mousePosBasedOnCharPos < 0)
+        {
+            Vector3 newAngles = transform.eulerAngles;
+            newAngles.y = 180;
+            transform.eulerAngles = newAngles;
+            charIsFacingRight = false;
         }
     }
 }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9455b8cbb4baf6547aa7d68f3bbc2afc, type: 3}
   m_Name: BaseTestClassData
   m_EditorClassIdentifier: 
+  moveSpeed: 5
   damage: 10
   projectileSpeed: 25
   projectileTimeToLive: 5

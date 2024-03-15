@@ -6,4 +6,5 @@ public interface IWeapon
 {
     public void Fire(Vector3 spawnPoint, Vector3 target);
     public void InitializeWeapon(CharacterDataScriptableObject characterData);
+    public void FollowPointer(Vector3 mousePointer);
 }

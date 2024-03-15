@@ -6,6 +6,11 @@ public class DefaultProjectileController : MonoBehaviour, IProjectile
 {
     [SerializeField] private ProjectileScriptableObject projectileData;
 
+    public void FlipProjectile()
+    {
+        this.GetComponent<SpriteRenderer>().flipY = true;
+    }
+
     protected void OnTriggerEnter2D(Collider2D other)
     {
         IDamageable damageable = other.GetComponent<IDamageable>();
