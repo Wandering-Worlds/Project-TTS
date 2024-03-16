@@ -6,8 +6,12 @@ public class FollowMouse : MonoBehaviour
 {
     [SerializeField]
     private Vector2 boundingBoxSize = new Vector2 (5f, 3f);
-    [SerializeField]
     private GameObject refToPlayer;
+
+    private void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     private void Update()
@@ -36,6 +40,4 @@ public class FollowMouse : MonoBehaviour
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireCube(playerPosition, new Vector3(boundingBoxSize.x, boundingBoxSize.y, 0.1f));
     }
-
-
 }
