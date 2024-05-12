@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e12539759742c5469b90305b3fd3d15, type: 3}
   m_Name: FailedSuiteData
   m_EditorClassIdentifier: 
-  health: 20
+  health: 50
   speed: 2
   damage: 0

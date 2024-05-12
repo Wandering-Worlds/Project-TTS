@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2931357712088556969}
   m_Layer: 0
   m_Name: FailedSuite
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +102,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -171,4 +171,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 882fbd27d6838074989ed2bc783a3c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canMove: 1
   classData: {fileID: 11400000, guid: 00165d14f75795142b79538a8a4ac781, type: 2}

@@ -18,7 +18,24 @@ public abstract class CharController : MonoBehaviour
             Die();
         }
     }
-
+    public virtual void CallKnockBack(Vector2 direction, float force, float duration)
+    {
+        StartCoroutine(KnockBack(direction, force, duration));
+    }
+    
+    public virtual IEnumerator KnockBack(Vector2 direction, float force, float duration)
+    {
+        gameObject.GetComponent<EnemyController>().canMove = false;
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        float timer = 0;
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+            rb.AddForce(direction * force, ForceMode2D.Force);
+            yield return null;
+        }
+        gameObject.GetComponent<EnemyController>().canMove = true;
+    }
     protected virtual void Die()
     {
         Destroy(gameObject);
