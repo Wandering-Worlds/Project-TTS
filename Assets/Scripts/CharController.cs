@@ -31,7 +31,7 @@ public abstract class CharController : MonoBehaviour
         while (timer < duration)
         {
             timer += Time.deltaTime;
-            rb.AddForce(direction * force, ForceMode2D.Force);
+            rb.AddForce(direction * force, ForceMode2D.Impulse);
             yield return null;
         }
         gameObject.GetComponent<EnemyController>().canMove = true;

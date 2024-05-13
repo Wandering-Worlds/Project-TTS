@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileData: {fileID: 11400000, guid: 837ffe79ca38dad4799a41597474a75c, type: 2}
-  knockBackForce: 25
+  knockBackForce: 0.2
   knockBackDuration: 0.1
 --- !u!50 &5370711472415691983
 Rigidbody2D:
