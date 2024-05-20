@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class DefaultProjectileController : MonoBehaviour, IProjectile
 {
-    [SerializeField] private ProjectileScriptableObject projectileData;
-    [SerializeField] private float knockBackForce;
-    [SerializeField] private float knockBackDuration;
+    [SerializeField] private ProjectileScriptableObject projectileData;    
 
     public void FlipProjectile()
     {
@@ -28,8 +26,9 @@ public class DefaultProjectileController : MonoBehaviour, IProjectile
 
             Vector2 direction =  other.transform.position - playerTransform.position;
             direction.Normalize();
+
             //Apply Knockback to the object
-            damageable.CallKnockBack(direction, knockBackForce, knockBackDuration);
+            damageable.CallKnockBack(direction, projectileData.knockBackForce, projectileData.knockBackDuration);
 
             //Destroy Bullet
             Destroy(gameObject);
