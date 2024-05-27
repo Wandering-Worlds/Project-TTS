@@ -15,4 +15,4 @@ MonoBehaviour:
   damage: 10
   projectileSpeed: 25
   knockBackDuration: 0.1
-  knockBackForce: 0.1
+  knockBackForce: 0.2

@@ -17,4 +17,4 @@ MonoBehaviour:
   projectileSpeed: 25
   projectileTimeToLive: 5
   offsetScale: 0.4
-  attacksPerSecond: 10
+  attacksPerSecond: 2
