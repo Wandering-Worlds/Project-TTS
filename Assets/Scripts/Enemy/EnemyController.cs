@@ -26,4 +26,19 @@ public abstract class EnemyController : CharController, IDamageable
 
     }
 
+    public override void TakeDamage(float damage)
+    {
+        base.TakeDamage(damage);
+        StartCoroutine(FlashEffect());
+
+    }
+
+    // enumartor for a flash effect when the enemy takes damage
+    protected IEnumerator FlashEffect()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.color = Color.white;
+    }
 }
