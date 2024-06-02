@@ -19,7 +19,7 @@ public abstract class PlayerController : CharController
 
     private bool charIsFacingRight = true;
 
-    abstract protected void AnimateHorizontalMove(float horizontalInput);
+    abstract protected void AnimateMove(float horizontalInput, float verticalInput);
 
     protected virtual void Awake()
     {
@@ -54,7 +54,7 @@ public abstract class PlayerController : CharController
         float verticalInput = Input.GetAxisRaw("Vertical");
         Vector2 movement = new Vector2(horizontalInput, verticalInput).normalized;
         rb.velocity = movement * moveSpeed;
-        AnimateHorizontalMove(horizontalInput);
+        AnimateMove(horizontalInput, verticalInput);
     }
 
     protected virtual void ShootWeapon()

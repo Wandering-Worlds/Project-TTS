@@ -2,8 +2,15 @@ using UnityEngine;
 
 public class BaseTestClass : PlayerController
 {
-    protected override void AnimateHorizontalMove(float horizontalInput)
+    protected override void AnimateMove(float horizontalInput, float verticalInput)
     {
-        animator.SetFloat("HorizontalVelocity", horizontalInput);
+        if(horizontalInput == 0f && verticalInput == 0f)
+        {
+            animator.SetBool("IsMoving", false);
+        } else
+        {
+            animator.SetBool("IsMoving", true);
+        }
+        
     }
 }
