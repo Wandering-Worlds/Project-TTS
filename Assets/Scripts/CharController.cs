@@ -23,7 +23,7 @@ public abstract class CharController : MonoBehaviour
         StartCoroutine(KnockBack(direction, force, duration));
     }
     
-    public virtual IEnumerator KnockBack(Vector2 direction, float force, float duration)
+    private IEnumerator KnockBack(Vector2 direction, float force, float duration)
     {
         gameObject.GetComponent<EnemyController>().canMove = false;
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
