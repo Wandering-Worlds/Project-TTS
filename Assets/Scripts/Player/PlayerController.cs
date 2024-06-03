@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public abstract class PlayerController : CharController
@@ -12,15 +13,19 @@ public abstract class PlayerController : CharController
 
     protected Rigidbody2D rb;
     protected SpriteRenderer spriteRenderer;
+    protected Animator animator;
     protected IWeapon weapon;
     protected float moveSpeed;
 
     private bool charIsFacingRight = true;
 
+    abstract protected void AnimateMove(float horizontalInput, float verticalInput);
+
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         moveSpeed = classData.moveSpeed;
     }
 
@@ -49,6 +54,7 @@ public abstract class PlayerController : CharController
         float verticalInput = Input.GetAxisRaw("Vertical");
         Vector2 movement = new Vector2(horizontalInput, verticalInput).normalized;
         rb.velocity = movement * moveSpeed;
+        AnimateMove(horizontalInput, verticalInput);
     }
 
     protected virtual void ShootWeapon()
