@@ -10,7 +10,7 @@ public class FollowMouse : MonoBehaviour
 
     private void Start()
     {
-        
+        refToPlayer = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
